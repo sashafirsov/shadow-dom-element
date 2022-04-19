@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+    <title>shadow-dom-element demo</title>
+  <style>
+    body {
+    }
+  </style>
+</head>
+<body>
+    <shadow-dom-element>
+        <template>
+            <slot name="slot1"><h5>FAIL heading 5</h5></slot>
+            <slot name="slot2"><button >FAIL action</button></slot>
+        </template>
+        <a slot="slot2" href="#">link</a>
+        <h3 slot="slot1" id="heading" >heading 3</h3>
+    </shadow-dom-element>
+
+  <script type="module" src="../shadow-dom-element.js" ></script>
+</body>
+</html>

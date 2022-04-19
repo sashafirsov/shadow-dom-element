@@ -1,0 +1,42 @@
+{
+    "name": "shadow-dom-element",
+    "version": "0.0.1",
+    "description": "shadow-dom-element web component to render local and remote template",
+    "author": {
+        "name": "Sasha Firsov",
+        "email": "suns@simulationworks.com",
+        "url": "https://blog.firsov.net/"
+    },
+    "homepage": "https://github.com/sashafirsov/shadow-dom-element",
+    "bugs": "https://github.com/sashafirsov/shadow-dom-element/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sashafirsov/shadow-dom-element.git"
+    },
+    "keywords": [
+        "JS",
+        "front-end",
+        "Vanilla",
+        "ShadowDOM",
+        "Web Component",
+        "WebComponent"
+    ],
+    "license": "Apache-2.0",
+    "browser": "shadow-dom-element.js",
+    "module": "shadow-dom-element.js",
+    "type": "module",
+    "files": [
+        "*",
+        "**/*"
+    ],
+    "scripts": {
+        "start": "npx @web/dev-server",
+        "test": "echo 'test is implemented in https://github.com/sashafirsov/light-dom-element-test' && exit 0"
+    },
+    "dependencies": {
+    },
+    "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/sashafirsov"
+    }
+}
