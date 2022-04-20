@@ -10,16 +10,20 @@
     </style>
 </head>
 <body>
-<h1>&lt;shadow-dom-element&gt; demo</h1>
-<pre>
-TODO
-link to
-* light-dom-element and
-* template use by CssChain
+<header>
+    <h1>&lt;shadow-dom-element&gt; demo</h1>
+    <p> Developer's documentation in <a href="https://github.com/sashafirsov/shadow-dom-element">Git repo</a>
+        |   This page <a href="https://github.com/sashafirsov/shadow-dom-element/blob/main/demo/index.html">source</a>
+    </p>
+    <p> Check out <a href="https://github.com/sashafirsov/light-dom-element">light-dom-element</a>
+        same html template rendering use <b>without shadow DOM</b>
+        for SSR and CMS </p>
+    <p> While <code>shadow-dom-element</code> can render JSON as in sample bellow,
+        the thorough handling of loading-rendering lifecycle is done by
+        <a href="https://github.com/sashafirsov/slotted-element">slotted-element</a>
+    </p>
+</header>
 
-by ID - template & slots
-json , with link to slotted-element
-</pre>
 <html-demo-element legend="Inline slots & template">
     <template>
 <shadow-dom-element>
@@ -36,6 +40,7 @@ json , with link to slotted-element
 </shadow-dom-element>
     </template>
 </html-demo-element>
+
 <html-demo-element legend="in-page slots & template">
     <template>
 <template id="in-page-template">
@@ -53,15 +58,51 @@ json , with link to slotted-element
 <shadow-dom-element srcset="in-page-slots" for="in-page-template"></shadow-dom-element>
     </template>
 </html-demo-element>
+
 <html-demo-element legend="Slots & template from URL">
     <template>
 <shadow-dom-element src="slots.html" code="template.html"></shadow-dom-element>
     </template>
 </html-demo-element>
+
 <html-demo-element legend="slots.html" src="slots.html"></html-demo-element>
+
 <html-demo-element legend="template.html" src="template.html"></html-demo-element>
 
 <script type="module" src="https://unpkg.com/html-demo-element@1.0/html-demo-element.js"></script>
 <script type="module" src="../shadow-dom-element.js"></script>
+
+<html-demo-element legend="json rendering">
+    <json-sample src="doc.json">
+        <template>
+            <fieldset>
+                <legend>name: <slot name="name"></slot></legend>
+                <slot name="title"></slot><br/>
+                <slot name="portrait"></slot>
+            </fieldset>
+        </template>
+    </json-sample>
+</html-demo-element>
+
+<html-demo-element legend="load json by overriding fetch()">
+<script type="module">
+    import ShadowDomElement from "../shadow-dom-element.js";
+    class JsonSample extends ShadowDomElement
+    {
+        async fetch( url ){
+            const obj = await ( await fetch(url) ).json();
+            const ret = Object.keys( obj )
+                            .map( key =>
+                                key === 'portrait'
+                                ? `<img  slot="${key}" src="${ obj[key] }"/>`
+                                : `<span slot="${key}">${ obj[key] }</span>` )
+                            .join('\n')
+            return ret;
+        }
+    }
+    customElements.define('json-sample', JsonSample);
+</script>
+</html-demo-element>
+
 </body>
 </html>

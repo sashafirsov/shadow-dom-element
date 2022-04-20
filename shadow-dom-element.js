@@ -5,8 +5,9 @@ export default class ShadowDomElement extends HTMLElement
     constructor()
     {
         super();
-        this.promise = this.slotsInit(); // tbd event on resolving
+        this.promise = this.slotsInit();
     }
+    async fetch( url ){ return ( await fetch( url ) ).text() }
 
     applyTemplate( t )
     {
@@ -17,12 +18,12 @@ export default class ShadowDomElement extends HTMLElement
 
     async slotsInit()
     {
-        const getText = async url => ( await fetch( url ) ).text();
+        const getText = async url => this.fetch( url );
         const onAttr = async( attr, cb ) =>
         {
             await ( async a => ( a ? cb( a ) : 0 ) )( this.getAttribute( attr ) );
         };
-
+        const embeddedTemplates = [ ...this.getElementsByTagName( 'template' ) ];
         await onAttr(
             'srcset',
             id => ( this.innerHTML = `${ document.getElementById( id )?.innerHTML }` )
@@ -32,7 +33,7 @@ export default class ShadowDomElement extends HTMLElement
         this.attachShadow( { mode: 'open' } );
         const applyTemplate = t => this.applyTemplate( t );
         // @ts-ignore
-        [ ...this.getElementsByTagName( 'template' ) ].forEach( applyTemplate );
+        embeddedTemplates.forEach( applyTemplate );
 
         await onAttr( 'for', id => applyTemplate( document.getElementById( id ) ) );
         await onAttr( 'code', async url =>
