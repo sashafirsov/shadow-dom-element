@@ -1,23 +1,67 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
     <title>shadow-dom-element demo</title>
-  <style>
-    body {
-    }
-  </style>
+    <style>
+        body{ display: flex; flex-wrap: wrap; align-content: stretch; gap: 1rem; }
+        body>*{flex:1; min-width: 32rem;}
+
+    </style>
 </head>
 <body>
-    <shadow-dom-element>
-        <template>
-            <slot name="slot1"><h5>FAIL heading 5</h5></slot>
-            <slot name="slot2"><button >FAIL action</button></slot>
-        </template>
-        <a slot="slot2" href="#">link</a>
-        <h3 slot="slot1" id="heading" >heading 3</h3>
-    </shadow-dom-element>
+<h1>&lt;shadow-dom-element&gt; demo</h1>
+<pre>
+TODO
+link to
+* light-dom-element and
+* template use by CssChain
 
-  <script type="module" src="../shadow-dom-element.js" ></script>
+by ID - template & slots
+json , with link to slotted-element
+</pre>
+<html-demo-element legend="Inline slots & template">
+    <template>
+<shadow-dom-element>
+    <template>
+        <slot name="slot1"><h5>FAIL heading 5 🙄</h5></slot>
+        <slot name="slot2">
+            <button>FAIL action 🤥</button>
+        </slot>
+        <slot name="slot3"><p> slot 3 not overridden </p></slot>
+        default slot
+    </template>
+    <a slot="slot2" href="#">link 😃</a>
+    <h3 slot="slot1" id="heading">heading 3 😌</h3>
+</shadow-dom-element>
+    </template>
+</html-demo-element>
+<html-demo-element legend="in-page slots & template">
+    <template>
+<template id="in-page-template">
+    <slot name="slot1"><h5>FAIL heading 5🙄</h5></slot>
+    <slot name="slot2">
+        <button>FAIL action 🤥</button>
+    </slot>
+    <slot name="slot3"><p> slot 3 not overridden </p></slot>
+    default slot
+</template>
+<template id="in-page-slots">
+    <a slot="slot2" href="#">link 😃</a>
+    <h3 slot="slot1" >heading 3 😌</h3>
+</template>
+<shadow-dom-element srcset="in-page-slots" for="in-page-template"></shadow-dom-element>
+    </template>
+</html-demo-element>
+<html-demo-element legend="Slots & template from URL">
+    <template>
+<shadow-dom-element src="slots.html" code="template.html"></shadow-dom-element>
+    </template>
+</html-demo-element>
+<html-demo-element legend="slots.html" src="slots.html"></html-demo-element>
+<html-demo-element legend="template.html" src="template.html"></html-demo-element>
+
+<script type="module" src="https://unpkg.com/html-demo-element@1.0/html-demo-element.js"></script>
+<script type="module" src="../shadow-dom-element.js"></script>
 </body>
 </html>
