@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>shadow-dom-element demo</title>
@@ -21,6 +21,10 @@
     <p> While <code>shadow-dom-element</code> can render JSON as in sample bellow,
         the thorough handling of loading-rendering lifecycle is done by
         <a href="https://github.com/sashafirsov/slotted-element">slotted-element</a>
+    </p>
+    <p>More extended set of template with slots use is covered by
+        <a href="https://unpkg.com/css-chain-test@1.1.2/dist/slots.html">CssChain slots demo</a>.
+        CssChain is a modern DOM manipulation library with support of Light and Shadow DOM.
     </p>
 </header>
 
@@ -91,13 +95,12 @@
     {
         async fetch( url ){
             const obj = await ( await fetch(url) ).json();
-            const ret = Object.keys( obj )
-                            .map( key =>
-                                key === 'portrait'
-                                ? `<img  slot="${key}" src="${ obj[key] }"/>`
-                                : `<span slot="${key}">${ obj[key] }</span>` )
-                            .join('\n')
-            return ret;
+            return Object.keys( obj )
+                    .map( key =>
+                        key === 'portrait'
+                        ? `<img alt="${key}" slot="${key}" src="${ obj[key] }"/>`
+                        : `<span slot="${key}">${ obj[key] }</span>` )
+                    .join('\n')
         }
     }
     customElements.define('json-sample', JsonSample);
