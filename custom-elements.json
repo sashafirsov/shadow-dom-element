@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "dist/shadow-dom-element.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Web Component to populate html slots into template using Shadow DOM. Slots content and template could be local in the page or pointed via URL.",
+          "name": "ShadowDomElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "promise",
+              "type": {
+                "text": "Promise<this>"
+              },
+              "description": "resolved when template and slots payload is rendered"
+            },
+            {
+              "kind": "method",
+              "name": "applyTemplate",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "templateElement",
+                  "type": {
+                    "text": "HTMLTemplateElement"
+                  }
+                }
+              ],
+              "description": "applies template content and renders slots"
+            },
+            {
+              "kind": "method",
+              "name": "slotsInit",
+              "return": {
+                "type": {
+                  "text": "Promise<ShadowDomElement>"
+                }
+              },
+              "description": "reads payload and template from body or by attributes, apply template and renders slots"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "shadow-dom-element",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ShadowDomElement",
+            "module": "dist/shadow-dom-element.js"
+          }
+        }
+      ]
+    }
+  ]
+}
