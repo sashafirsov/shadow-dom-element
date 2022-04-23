@@ -9,7 +9,7 @@ Slots content and template could be local in the page or pointed via URL.
 * `promise` property resolved when template is applied.
 
 [![git](https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/mark-github.svg) GitHub](https://github.com/sashafirsov/shadow-dom-element)
-| Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.2/demo/index.html)
+| Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.3/demo/index.html)
 | [tests project](https://github.com/sashafirsov/light-dom-element-test)
 
 [![NPM version][npm-image]][npm-url]
@@ -42,7 +42,7 @@ is 1.6Kb, [compiled](https://unpkg.com/shadow-dom-element-test@0.0/dist/src/shad
 ## API
 * `promise` resolved when template and slots loaded and rendered
 * `slotsInit()` initiates template and slots reading and rendering, returns `Promise<this>`
-* `fetch( url )` to override id want to load and process URL before returning a HTML string with data within slots.
+* `fetch( url )` override to load and process URL before returning a HTML string with data within slots.
 Handy to use the JSON or XML as data source. Note, there is no error handling, you have to cover that case by template
 and error slots. For that you could find [slotted-element](https://github.com/sashafirsov/slotted-element) handy as it 
 is designed for loading life cycle.
@@ -74,5 +74,5 @@ none
 
 [npm-image]:      https://img.shields.io/npm/v/shadow-dom-element.svg
 [npm-url]:        https://npmjs.org/package/shadow-dom-element
-[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.2/coverage/coverage.svg
-[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.2/coverage/lcov-report/index.html
+[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.3/coverage/coverage.svg
+[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.3/coverage/lcov-report/index.html
