@@ -36,12 +36,18 @@ if need a site sample based on html templates or have your own to be shared.
     <script type="module" scr="https://unpkg.com/shadow-dom-element@0.0/shadow-dom-element.js"></script>
 ```
 The size of [shadow-dom-element.js](https://unpkg.com/shadow-dom-element@0.0/shadow-dom-element.js) 
-is 1.6Kb. 
+is 1.6Kb, [compiled](https://unpkg.com/shadow-dom-element-test@0.0/dist/src/shadow-dom-element.js) to 1Kb. 
  
 
 ## API
 * `promise` resolved when template and slots loaded and rendered
 * `slotsInit()` initiates template and slots reading and rendering, returns `Promise<this>`
+* `fetch( url )` to override id want to load and process URL before returning a HTML string with data within slots.
+Handy to use the JSON or XML as data source. Note, there is no error handling, you have to cover that case by template
+and error slots. For that you could find [slotted-element](https://github.com/sashafirsov/slotted-element) handy as it 
+is designed for loading life cycle.
+* `applyTemplate( templateNode )` applies template to slots in sub-dom of this element as Shadow DOM. Internal method to be overridden 
+by [light-dom-element](https://github.com/sashafirsov/light-dom-element) to render by Light DOM.
 
 ### Attributes
 all attributes reflected as component properties
