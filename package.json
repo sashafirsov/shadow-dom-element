@@ -1,6 +1,6 @@
 {
     "name": "shadow-dom-element",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "shadow-dom-element web component to render local and remote template",
     "author": {
         "name": "Sasha Firsov",
@@ -38,5 +38,6 @@
     "funding": {
         "type": "patreon",
         "url": "https://www.patreon.com/sashafirsov"
-    }
+    },
+    "customElements": "custom-elements.json"
 }

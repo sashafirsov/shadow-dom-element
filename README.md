@@ -9,7 +9,7 @@ Slots content and template could be local in the page or pointed via URL.
 * `promise` property resolved when template is applied.
 
 [![git](https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/mark-github.svg) GitHub](https://github.com/sashafirsov/shadow-dom-element)
-| Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.3/demo/index.html)
+| Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.4/demo/index.html)
 | [tests project](https://github.com/sashafirsov/light-dom-element-test)
 
 [![NPM version][npm-image]][npm-url]
@@ -74,5 +74,5 @@ none
 
 [npm-image]:      https://img.shields.io/npm/v/shadow-dom-element.svg
 [npm-url]:        https://npmjs.org/package/shadow-dom-element
-[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.3/coverage/coverage.svg
-[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.3/coverage/lcov-report/index.html
+[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.4/coverage/coverage.svg
+[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.4/coverage/lcov-report/index.html

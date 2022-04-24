@@ -48,4 +48,4 @@ export default class ShadowDomElement extends HTMLElement
     }
 }
 
-window.customElements.get('shadow-dom-element') || window.customElements.define('shadow-dom-element', ShadowDomElement);
+window.customElements.define('shadow-dom-element', ShadowDomElement);

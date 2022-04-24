@@ -1,4 +1,8 @@
 /// <reference lib="dom" />
+/**
+ * Web Component to populate html slots into template using Shadow DOM.
+ * Slots content and template could be local in the page or pointed via URL.
+ */
 export default class ShadowDomElement extends HTMLElement {
     /**
      * resolved when template and slots payload is rendered
@@ -6,7 +10,7 @@ export default class ShadowDomElement extends HTMLElement {
     promise: Promise<ShadowDomElement>;
 
     /**
-     * applies template content and renders slots
+     * applies template content and renders slots, called from `slotsInit()`
      * @param templateElement
      * @returns this
      */
@@ -21,6 +25,7 @@ export default class ShadowDomElement extends HTMLElement {
 
     /**
      * reads payload and template from body or by attributes, apply template and renders slots
+     * , called from constructor
      * @returns promise resolved when template and payload is rendered
      */
     slotsInit(): Promise<ShadowDomElement>;

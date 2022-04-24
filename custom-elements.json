@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "dist/shadow-dom-element.js",
+      "path": "shadow-dom-element.js",
       "declarations": [
         {
           "kind": "class",
@@ -61,7 +61,7 @@
           "name": "default",
           "declaration": {
             "name": "ShadowDomElement",
-            "module": "dist/shadow-dom-element.js"
+            "module": "shadow-dom-element.js"
           }
         }
       ]
