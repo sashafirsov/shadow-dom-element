@@ -12,7 +12,11 @@ export default class ShadowDomElement extends HTMLElement
     applyTemplate( t )
     {
         // @ts-ignore
-        this.shadowRoot.appendChild( t.content.cloneNode( true ) );
+        const s = this.shadowRoot;
+        s.appendChild( t.content.cloneNode( true ) );
+        s.querySelectorAll('slot[attribute]').forEach(
+            a => a.parentElement.setAttribute(a.getAttribute('attribute')
+                ,   a.assignedElements().map( l=>l.href || l.src || l.innerText).join('')) );
         return this;
     }
 

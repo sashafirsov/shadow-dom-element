@@ -33,8 +33,6 @@
         "start": "npx @web/dev-server",
         "test": "echo 'test is implemented in https://github.com/sashafirsov/light-dom-element-test' && exit 0"
     },
-    "dependencies": {
-    },
     "funding": {
         "type": "patreon",
         "url": "https://www.patreon.com/sashafirsov"
