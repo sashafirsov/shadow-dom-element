@@ -1,5 +1,9 @@
 <header class="mt4 w-100">
-    <link rel="stylesheet" href="../../css/main.min.css">
+    <style>
+        @import "../../css/main.min.css";
+        ::slotted(h1){font-size: 3rem!important; margin-top:1rem!important; margin-bottom: 0.25rem!important;font-family: athelas,georgia,serif;}
+
+    </style>
     <aside class="instapaper_ignoref b helvetica tracked">
         ARTICLES
     </aside>
@@ -19,7 +23,7 @@
     </div>
 
 
-    <h1 class="f1 athelas mt3 mb1"><slot name="title" >ZZZ</slot></h1>
+    <h1 class="f1 athelas mt3 mb1"><slot name="title" ></slot></h1>
 
 
     <time class="f6 mv4 dib tracked" datetime="2017-04-14T11:25:05-04:00">April 14, 2017</time>
