@@ -1,0 +1,24 @@
+<main class="pb7" role="main">
+    <link rel="stylesheet" href="../../css/main.min.css">
+
+
+    <article class="flex-l flex-wrap justify-between mw8 center ph3">
+        <shadow-dom-element
+                code="./templates/article-header.html"
+                >
+            <slot name="article-source" attribute="src"></slot>
+        </shadow-dom-element>
+
+        <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l">
+
+            <slot name="article-text"></slot>
+
+            <ul class="pa0"></ul>
+            <div class="mt6 instapaper_ignoref"></div>
+        </div>
+
+        <aside class="w-30-l mt6-l"></aside>
+
+    </article>
+
+</main>

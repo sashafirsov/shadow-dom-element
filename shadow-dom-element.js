@@ -16,7 +16,9 @@ export default class ShadowDomElement extends HTMLElement
         s.appendChild( t.content.cloneNode( true ) );
         s.querySelectorAll('slot[attribute]').forEach(
             a => a.parentElement.setAttribute(a.getAttribute('attribute')
-                ,   a.assignedElements().map( l=>l.href || l.src || l.innerText).join('')) );
+                ,   a.assignedElements().map( l=>l.getAttribute('href')
+                                             ||  l.getAttribute('src')
+                                             ||  l.innerText).join('')) );
         return this;
     }
 
