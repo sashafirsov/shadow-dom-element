@@ -59,22 +59,32 @@
 </template>
 
 <template id="summary-no-image">
-    <link rel="stylesheet" href="../../css/main.min.css">
+    <style>
+        :host{ font-family: avenir next,avenir,sans-serif; font-size: .875rem; line-height: 1.5; color: #333; }
+        article{ padding: 2rem 1rem; border-color: rgba(0, 0, 0, .1); border-bottom-style: solid; border-bottom-width: 1px; }
+        article ::slotted(h1){  font-size: 1.5rem!important; line-height: 1.25; font-weight: 100;
+                                font-family: athelas,georgia,serif;
+                                margin-top: 0!important;
+                             }
+        section{ }
+        ::slotted(a[slot="read-more-link"]){   margin-top: 0.5rem ; padding: 0.25rem  0.5rem; background-color: #eee!important;
+                        text-decoration: none; font-size: .75rem; line-height: 1.15;
+                        display: inline-block; border-radius: 0.25rem; border: #CCC 1px solid; }
+        ::slotted(a[slot="read-more-link"]:hover){ background-color: #ccc!important; }
+        ::slotted(a[slot="title-link"]){ background-color: transparent; color: inherit; text-decoration: none;
+                        font-size: 1.5rem; line-height: 1.25; font-weight: 100;     font-family: athelas,georgia,serif;
+                    }
+        ::slotted(a[slot="title-link"]:hover){ opacity: .5; }
+        ::slotted(a){transition: color .15s ease-in; }
 
-    <div class="relative w-100 mb4">
-        <article class="bb b--black-10">
-            <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-                <div class="flex flex-column flex-row-ns">
-
-                    <div class="blah w-100">
-                        <slot name="title"          ></slot>
-                        <slot name="summary"        ></slot>
-                        <slot name="read-more-link" ></slot>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
+    </style>
+    <article class="bb b--black-10">
+        <h1>
+            <slot name="title-link"     ></slot>
+        </h1>
+        <section><slot name="summary"        ></slot></section>
+        <slot name="read-more-link" ></slot>
+    </article>
 </template>
 
 <header class="cover bg-top"
@@ -178,40 +188,6 @@
             <shadow-dom-element for="summary-with-image" src="post/chapter-6/index.html" ></shadow-dom-element>
             <shadow-dom-element for="summary-no-image"   src="post/chapter-5/index.html" ></shadow-dom-element>
             <shadow-dom-element for="summary-no-image"   src="post/chapter-4/index.html" ></shadow-dom-element>
-
-
-
-
-
-            <div class="relative w-100 mb4">
-
-                <article class="bb b--black-10">
-                    <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-                        <div class="flex flex-column flex-row-ns">
-
-                            <div class="blah w-100">
-                                <h1 class="f3 fw1 athelas mt0 lh-title">
-                                    <a href="/post/chapter-4/" class="color-inherit dim link">
-                                        Chapter IV: Master Jacques Coppenole
-                                    </a>
-                                </h1>
-                                <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-                                    While the pensioner of Ghent and his eminence were exchanging very low bows and a
-                                    few words in voices still lower, a man of lofty stature, with a large face and broad
-                                    shoulders, presented himself, in order to enter abreast with Guillaume Rym; one
-                                    would have pronounced him a bull-dog by the side of a fox. His felt doublet and
-                                    leather jerkin made a spot on the velvet and silk which surrounded him.
-                                </div>
-                                <a href="/post/chapter-4/"
-                                   class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read
-                                    more</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
 
         </section>
 
