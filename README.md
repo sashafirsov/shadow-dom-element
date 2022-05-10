@@ -22,7 +22,11 @@ Slots content and template could be local in the page or pointed via URL.
 It is meant for displaying the static content in the page or available during page load via URL. 
 
 You do not need a [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/)
-as most of "components" could be expressed via template in own file.
+as most of "components" could be expressed via template in own file. 
+[There is a live sample](https://unpkg.com/shadow-dom-element/demo/ananke/content/en/index.html) of `shadow-dom-element` based 
+templates for Ananke site generator. While it is not a good example of shadow dom css styling, 
+it gives enough for templates embedding and use of such for building the static web site. You could play  with this 
+responsive template in CodeSandbox.   
 
 [File the issue](https://github.com/sashafirsov/shadow-dom-element/issues) 
 if need a site sample based on html templates or have your own to be shared. 
