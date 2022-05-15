@@ -54,6 +54,45 @@
 <shadow-dom-element src="slots.html" code="template.html"></shadow-dom-element>
     </template>
 </html-demo-element>
+<html-demo-element legend="Default slot">
+    <template>
+        <shadow-dom-element>
+            <template>
+                <slot><button>FAIL action</button></slot>
+            </template>
+            <button slot="">action</button>
+        </shadow-dom-element>    </template>
+</html-demo-element>
+
+<html-demo-element legend="slots for attributes">
+    <template>
+        <shadow-dom-element>
+            <template>
+                <a href="#" title="FAIL title ovverriding 🙄">
+                    <slot name="link-url"   attribute="href"    hidden ></slot>
+                    <slot name="link-title" attribute="title"   hidden ></slot>
+                    link SRC and TITLE controlled by slots
+                </a>
+
+                <hr/>
+                <img alt="image without url" id="image-1" />
+                <slot name="image-alt" attribute="alt" for="image-1" hidden></slot>
+
+                <hr/> Doc image URL by slot:<br/>
+                <img  id="image-2" alt="source from slot" />
+                <slot name="image-src" attribute="src" for="image-2" hidden></slot>
+            </template>
+            <a slot="link-url" href="./"        ></a>
+            <i slot="link-title"> link title 😃   </i>
+            <i slot="image-alt" > img  alt   😌   </i>
+            <link slot="image-src" href="doc.png" />
+        </shadow-dom-element>
+    </template>
+</html-demo-element>
+
+
+
+
 
 <html-demo-element legend="slots.html" src="slots.html"></html-demo-element>
 

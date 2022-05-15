@@ -1,3 +1,5 @@
+const attr = (el, name)=>el.getAttribute(name);
+
 export default class ShadowDomElement extends HTMLElement
 {
     promise;
@@ -14,20 +16,24 @@ export default class ShadowDomElement extends HTMLElement
         // @ts-ignore
         const s = this.shadowRoot;
         s.appendChild( t.content.cloneNode( true ) );
-        s.querySelectorAll('slot[attribute]').forEach(
-            a => a.parentElement.setAttribute(a.getAttribute('attribute')
-                ,   a.assignedElements().map( l=>l.getAttribute('href')
-                                             ||  l.getAttribute('src')
-                                             ||  l.innerText).join('')) );
+        s.querySelectorAll('slot[attribute]').forEach( a =>
+        {   let f = attr(a,'for')
+            ,   s = f ? a.getRootNode().querySelector('#'+f) : a.parentElement;
+
+            s.setAttribute( attr( a, 'attribute' )
+                ,   a.assignedElements().map( l=>attr( l, 'href')
+                                                 ||  attr( l, 'src')
+                                                 ||  l.innerText).join(''))
+        });
         return this;
     }
 
     async slotsInit()
     {
         const getText = async url => this.fetch( url );
-        const onAttr = async( attr, cb ) =>
+        const onAttr = async( att, cb ) =>
         {
-            await ( async a => ( a ? cb( a ) : 0 ) )( this.getAttribute( attr ) );
+            await ( async a => ( a ? cb( a ) : 0 ) )( attr(this, att ) );
         };
         const embeddedTemplates = [ ...this.getElementsByTagName( 'template' ) ];
         await onAttr(
