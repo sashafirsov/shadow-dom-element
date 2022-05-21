@@ -30,3 +30,6 @@ export default class ShadowDomElement extends HTMLElement {
      */
     slotsInit(): Promise<ShadowDomElement>;
 }
+interface HTMLElementTagNameMap {
+    'shadow-dom-element': ShadowDomElement;
+}
