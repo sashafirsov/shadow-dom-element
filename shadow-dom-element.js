@@ -13,21 +13,23 @@ export default class ShadowDomElement extends HTMLElement
 
     applyTemplate( t )
     {
-        // @ts-ignore
         const s = this.shadowRoot;
         s.appendChild( t.content.cloneNode( true ) );
+        this.postTemplateCallback( s );
+        return this;
+    }
+    postTemplateCallback(s)
+    {
         s.querySelectorAll('slot[attribute]').forEach( a =>
         {   let f = attr(a,'for')
             ,   s = f ? a.getRootNode().querySelector('#'+f) : a.parentElement;
 
             s.setAttribute( attr( a, 'attribute' )
                 ,   a.assignedElements().map( l=>attr( l, 'href')
-                                                 ||  attr( l, 'src')
-                                                 ||  l.innerText).join(''))
+                                             ||  attr( l, 'src')
+                                             ||  l.innerText).join(''))
         });
-        return this;
     }
-
     async slotsInit()
     {
         const getText = async url => this.fetch( url );
