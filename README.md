@@ -92,7 +92,7 @@ npm start
 ```
 
 # Typescript
-`import SlottedElement from 'shadow-dom-element'` code has [typings](shadow-dom-element.d.ts) along with JSDoc enabled. 
+`import ShadowDomElement from 'shadow-dom-element'` code has [typings](shadow-dom-element.d.ts) along with JSDoc enabled. 
 
 # dependencies
 none
