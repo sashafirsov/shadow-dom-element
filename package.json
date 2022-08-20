@@ -30,12 +30,15 @@
         "**/*"
     ],
     "scripts": {
-        "start": "npx @web/dev-server",
+        "start": "npm i @web/dev-server && web-dev-server --node-resolve",
         "test": "echo 'test is implemented in https://github.com/sashafirsov/light-dom-element-test' && exit 0"
     },
     "funding": {
         "type": "patreon",
         "url": "https://www.patreon.com/sashafirsov"
     },
-    "customElements": "custom-elements.json"
+    "customElements": "custom-elements.json",
+    "dependencies": {
+        "@web/dev-server": "^0.1.34"
+    }
 }
