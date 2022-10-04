@@ -1,5 +1,5 @@
-const attr = (el, name)=>el.getAttribute(name);
-
+const attr = (el, name)=>el.getAttribute(name)|| el.sde?.getAttribute(name);
+const TAG = 'shadow-dom-element';
 export default class ShadowDomElement extends HTMLElement
 {
     promise;
@@ -7,13 +7,34 @@ export default class ShadowDomElement extends HTMLElement
     constructor()
     {
         super();
-        this.promise = this.slotsInit();
+        const tag = attr(this,'tag');
+        if( tag && this.tagName.toLowerCase() === TAG  )
+        {   const sde = this;
+            this.templates = [...this.getElementsByTagName( 'template' )];
+            this.templates.map( t=>t.remove() );
+            customElements.define( tag, class ShadowDomElement_DCE extends ShadowDomElement{
+                slotsInit()
+                {   this.sde = sde;
+                    return super.slotsInit();
+                }
+            } );
+            if( this.innerHTML )
+            {   const html = this.outerHTML.replace('<'+TAG, '<'+tag)
+                , d = document.createElement('div');
+                this.innerHTML='';
+                this.insertAdjacentHTML('afterend',html);
+            }
+        }else
+        {
+            this.promise = this.slotsInit();
+        }
     }
     async fetch( url ){ return ( await fetch( url ) ).text() }
 
     applyTemplate( t )
     {
         const s = this.shadowRoot;
+        this.templateNode = t;
         s.appendChild( t.content.cloneNode( true ) );
         this.postTemplateCallback( s );
         return this;
@@ -37,7 +58,8 @@ export default class ShadowDomElement extends HTMLElement
         {
             await ( async a => ( a ? cb( a ) : 0 ) )( attr(this, att ) );
         };
-        const embeddedTemplates = [ ...this.getElementsByTagName( 'template' ) ];
+        const embeddedTemplates = [ ...this.getElementsByTagName( 'template' )
+                                  , ...( this.sde ? this.sde.templates : [] ) ];
         await onAttr(
             'srcset',
             id => ( this.innerHTML = `${ document.getElementById( id )?.innerHTML }` )
@@ -62,4 +84,4 @@ export default class ShadowDomElement extends HTMLElement
     }
 }
 
-window.customElements.define('shadow-dom-element', ShadowDomElement);
+window.customElements.define(TAG, ShadowDomElement);
