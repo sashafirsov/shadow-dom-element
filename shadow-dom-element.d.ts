@@ -1,7 +1,16 @@
 /// <reference lib="dom" />
 /**
- * Web Component to populate html slots into template using Shadow DOM.
+ * @summary Web Component to populate html slots into template using Shadow DOM.
+ * Declarative Custom Element when `tag` attribute is presented.
  * Slots content and template could be local in the page or pointed via URL.
+ *
+ * @tagname shadow-dom-element
+ * @attribute {string} tag - custom element tag name
+ * @attribute {string} tag - custom element tag name
+ * @attribute {string} srcset - ID of slots payload, usually a template with slots element
+ * @attribute {string} src - URL to slots payload
+ * @attribute {string} for - ID of template element
+ * @attribute {string} for - URL of template html, no template should be in retrieved file
  */
 export default class ShadowDomElement extends HTMLElement {
     /**

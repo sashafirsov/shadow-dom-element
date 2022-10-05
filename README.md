@@ -57,6 +57,7 @@ by [light-dom-element](https://github.com/sashafirsov/light-dom-element) to rend
 
 ### Attributes
 all attributes reflected as component properties
+* `tag` tag name of declarative custom element
 * `srcset` id of container with slots
 * `src` url for html with slots
 * `for` id for html template

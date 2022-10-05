@@ -10,6 +10,7 @@
           "kind": "class",
           "description": "Web Component to populate html slots into template using Shadow DOM. Slots content and template could be local in the page or pointed via URL.",
           "name": "ShadowDomElement",
+          "tagName": "shadow-dom-element",
           "members": [
             {
               "kind": "field",
@@ -35,7 +36,17 @@
                   }
                 }
               ],
-              "description": "applies template content and renders slots"
+              "description": "applies template content and renders slots, called from `slotsInit()`"
+            },
+            {
+              "kind": "method",
+              "name": "fetch",
+              "parameters": [
+                {
+                  "name": "url"
+                }
+              ],
+              "description": "override to load and process URL before returning a HTML string with data within slots."
             },
             {
               "kind": "method",
@@ -48,6 +59,26 @@
               "description": "reads payload and template from body or by attributes, apply template and renders slots"
             }
           ],
+          "events":[],
+          "slots":[],
+          "attributes": [
+              {   "name": "tag",
+                  "description": "tag name of declarative custom element"
+              },
+              {   "name": "srcset",
+                  "description": "id of container with slots"
+              },
+              {   "name": "src",
+                  "description": "url for html with slots"
+              },
+              {   "name": "for",
+                  "description": "id for html template"
+              },
+              {   "name": "code",
+                  "description": "url for html template"
+              }
+          ],
+          "demos":[],
           "superclass": {
             "name": "HTMLElement"
           },
@@ -59,6 +90,14 @@
         {
           "kind": "js",
           "name": "default",
+          "declaration": {
+            "name": "ShadowDomElement",
+            "module": "shadow-dom-element.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "shadow-dom-element",
           "declaration": {
             "name": "ShadowDomElement",
             "module": "shadow-dom-element.js"
