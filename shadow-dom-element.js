@@ -18,7 +18,7 @@ export default class ShadowDomElement extends HTMLElement
                     return super.slotsInit();
                 }
             } );
-            if( this.innerHTML )
+            if( this.childElementCount )
             {   const html = this.outerHTML.replace('<'+TAG, '<'+tag)
                 , d = document.createElement('div');
                 this.innerHTML='';

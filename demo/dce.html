@@ -86,16 +86,26 @@
 
 <!-- ======================================================================= -->
 <html-demo-element legend="Slots & template from URL"
-    description="payload provided with src does not trigger inline render for tag "
+    description="payload provided with src does not trigger inline render for declaration and would be used in instance "
 >
     <template>
 <style>dce-3{ border: dotted 4px green; } </style>
 <shadow-dom-element tag="dce-3" src="slots.html" code="template.html"></shadow-dom-element>
 <dce-3></dce-3>
-
+    </template>
+</html-demo-element>
+<!-- ======================================================================= -->
+<html-demo-element legend="template from URL and slots URL on instance"
+    description="payload URL is provided by src attribute on dec-3b instance "
+>
+    <template>
+<style>dce-3b{ border: dotted 4px darkorange; } </style>
+<shadow-dom-element tag="dce-3b" code="template.html"></shadow-dom-element>
+<dce-3b src="slots.html" ></dce-3b>
     </template>
 </html-demo-element>
 
+<!-- ======================================================================= -->
 <html-demo-element legend="Default slot"
     description="inline content would trigger dce-4, second instance has default slot override content"
 >
@@ -107,6 +117,20 @@
             <span slot="">action</span>
         </shadow-dom-element>
         <dce-4> default overridden </dce-4>
+    </template>
+</html-demo-element>
+
+<!-- ======================================================================= -->
+<html-demo-element legend="Default slot only in instance"
+    description="inline content missing,only instance has default slot override content"
+>
+    <template>
+        <shadow-dom-element tag="dce-4a">
+            <template>
+                <button><slot>FAIL action</slot></button>
+            </template>
+        </shadow-dom-element>
+        <dce-4a> default overridden </dce-4a>
     </template>
 </html-demo-element>
 
