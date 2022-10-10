@@ -5,17 +5,22 @@ populate html slots into template using
 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM).
 Slots content and template could be local in the page or pointed via URL.
 
-* fetch via [fetch() api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-* `promise` property resolved when template is applied.
-
 [![git](https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/mark-github.svg) GitHub](https://github.com/sashafirsov/shadow-dom-element)
 | Try in [Sandbox][sandbox-url]
-| Live Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.7/index.html)
+| Live Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.8/index.html)
 | [tests project](https://github.com/sashafirsov/light-dom-element-test)
 
 [![NPM version][npm-image]][npm-url]
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/shadow-dom-element)
 [![coverage][coverage-image]][coverage-url]
+
+```html
+<script type="module" src="https://unpkg.com/shadow-dom-element@0.0/shadow-dom-element.js"></script>
+<shadow-dom-element tag="my-component" src="https://unpkg.com/light-dom-element-test@0.0/test/template.html"></shadow-dom-element>
+<my-component>
+    <h3 slot="slot1">heading 😌</h3>
+</my-component>
+```
 
 ## Where to use
 `shadow-dom-element` is simplest web component to render HTML `template` and `slot`. 
@@ -24,7 +29,7 @@ It is meant for displaying the static content in the page or available during pa
 
 You do not need a [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/)
 as most of "components" could be expressed via template in own file. 
-[There is a live sample](https://unpkg.com/shadow-dom-element@0.0.7/demo/ananke/content/en/index.html) 
+[There is a live sample](https://unpkg.com/shadow-dom-element@0.0.8/demo/ananke/content/en/index.html) 
 of `shadow-dom-element` based templates for Ananke site generator. 
 While it is not a good example of shadow dom css styling, 
 it gives enough for templates embedding and use of such for building the static web site. You could play  with this 
@@ -46,6 +51,9 @@ is 1.6Kb, [compiled](https://unpkg.com/shadow-dom-element-test@0.0/dist/src/shad
  
 
 ## API
+fetch implemented via [fetch() api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), can be overridden with 
+any type.
+
 * `promise` resolved when template and slots loaded and rendered
 * `slotsInit()` initiates template and slots reading and rendering, returns `Promise<this>`
 * `fetch( url )` override to load and process URL before returning a HTML string with data within slots.
@@ -83,6 +91,7 @@ the attribute of container element where slot is located in template would be se
             <link slot="image-src" href="doc.png" />
         </shadow-dom-element>
 ```
+
 # test and demo
 reside in separate repository https://github.com/sashafirsov/ligh-dom-element-test to avoid unnecessary dependency in 
 source repo and npm. 
@@ -100,6 +109,6 @@ none
 
 [npm-image]:      https://img.shields.io/npm/v/shadow-dom-element.svg
 [npm-url]:        https://npmjs.org/package/shadow-dom-element
-[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.7/coverage/coverage.svg
-[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.7/coverage/lcov-report/index.html
+[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.8/coverage/coverage.svg
+[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.8/coverage/lcov-report/index.html
 [sandbox-url]:    https://stackblitz.com/github/sashafirsov/shadow-dom-element

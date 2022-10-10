@@ -12,20 +12,20 @@ export default class ShadowDomElement extends HTMLElement
         {   const sde = this;
             this.templates = [...this.getElementsByTagName( 'template' )];
             this.templates.map( t=>t.remove() );
-            customElements.define( tag, class ShadowDomElement_DCE extends ShadowDomElement{
-                slotsInit()
+            customElements.define( tag, class ShadowDomElementDCE extends ShadowDomElement{
+                async slotsInit()
                 {   this.sde = sde;
+                    await sde.promise;
                     return super.slotsInit();
                 }
             } );
             if( this.childElementCount )
-            {   const html = this.outerHTML.replace('<'+TAG, '<'+tag)
-                , d = document.createElement('div');
+            {   const html = this.outerHTML.replace('<'+TAG, '<'+tag);
                 this.innerHTML='';
                 this.insertAdjacentHTML('afterend',html);
             }
         }else
-        {
+        {   this.templates = [];
             this.promise = this.slotsInit();
         }
     }
@@ -34,7 +34,6 @@ export default class ShadowDomElement extends HTMLElement
     applyTemplate( t )
     {
         const s = this.shadowRoot;
-        this.templateNode = t;
         s.appendChild( t.content.cloneNode( true ) );
         this.postTemplateCallback( s );
         return this;
@@ -78,6 +77,7 @@ export default class ShadowDomElement extends HTMLElement
             d.innerHTML = await getText( url );
             const t = document.createElement( 'template' );
             d.childNodes.forEach( n => t.content.append( n ) );
+            this.templates.push(t);
             applyTemplate( t );
         } );
         return this;
