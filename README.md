@@ -7,7 +7,7 @@ Slots content and template could be local in the page or pointed via URL.
 
 [![git](https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/mark-github.svg) GitHub](https://github.com/sashafirsov/shadow-dom-element)
 | Try in [Sandbox][sandbox-url]
-| Live Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.8/index.html)
+| Live Demo: [shadow-dom-element](https://unpkg.com/shadow-dom-element@0.0.9/index.html)
 | [tests project](https://github.com/sashafirsov/light-dom-element-test)
 
 [![NPM version][npm-image]][npm-url]
@@ -29,7 +29,7 @@ It is meant for displaying the static content in the page or available during pa
 
 You do not need a [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/)
 as most of "components" could be expressed via template in own file. 
-[There is a live sample](https://unpkg.com/shadow-dom-element@0.0.8/demo/ananke/content/en/index.html) 
+[There is a live sample](https://unpkg.com/shadow-dom-element@0.0.9/demo/ananke/content/en/index.html) 
 of `shadow-dom-element` based templates for Ananke site generator. 
 While it is not a good example of shadow dom css styling, 
 it gives enough for templates embedding and use of such for building the static web site. You could play  with this 
@@ -109,6 +109,6 @@ none
 
 [npm-image]:      https://img.shields.io/npm/v/shadow-dom-element.svg
 [npm-url]:        https://npmjs.org/package/shadow-dom-element
-[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.8/coverage/coverage.svg
-[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.8/coverage/lcov-report/index.html
+[coverage-image]: https://unpkg.com/light-dom-element-test@0.0.9/coverage/coverage.svg
+[coverage-url]:   https://unpkg.com/light-dom-element-test@0.0.9/coverage/lcov-report/index.html
 [sandbox-url]:    https://stackblitz.com/github/sashafirsov/shadow-dom-element

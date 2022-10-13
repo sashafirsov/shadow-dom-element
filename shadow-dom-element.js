@@ -7,8 +7,9 @@ export default class ShadowDomElement extends HTMLElement
     constructor()
     {
         super();
-        const tag = attr(this,'tag');
-        if( tag && this.tagName.toLowerCase() === TAG  )
+        const tag = attr(this,'tag')
+            , tagName = this.tagName.toLowerCase();
+        if( tag && tagName !== tag  )
         {   const sde = this;
             this.templates = [...this.getElementsByTagName( 'template' )];
             this.templates.map( t=>t.remove() );
@@ -20,7 +21,7 @@ export default class ShadowDomElement extends HTMLElement
                 }
             } );
             if( this.childElementCount )
-            {   const html = this.outerHTML.replace('<'+TAG, '<'+tag);
+            {   const html = this.outerHTML.replace('<'+tagName, '<'+tag);
                 this.innerHTML='';
                 this.insertAdjacentHTML('afterend',html);
             }

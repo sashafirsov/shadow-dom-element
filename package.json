@@ -1,6 +1,6 @@
 {
     "name": "shadow-dom-element",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "shadow-dom-element is a declarative custom element/web component to render local and remote template",
     "author": {
         "name": "Sasha Firsov",
