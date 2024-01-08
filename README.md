@@ -23,7 +23,7 @@ Slots content and template could be local in the page or pointed via URL.
 ```
 
 ## Where to use
-`shadow-dom-element` is simplest web component to render HTML `template` and `slot`. 
+`shadow-dom-element` is simplest web component to render HTML `template` and `slot`. Fully functional template and declarative events handling is done by another project: [@epa-wg/custom-element](https://github.com/EPA-WG/custom-element) 
 
 It is meant for displaying the static content in the page or available during page load via URL. 
 
